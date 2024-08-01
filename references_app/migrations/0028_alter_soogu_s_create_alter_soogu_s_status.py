@@ -13,11 +13,11 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='soogu',
             name='s_create',
-            field=models.DateTimeField(blank=True, null=True),
+            field=models.DateTimeField(),
         ),
         migrations.AlterField(
             model_name='soogu',
             name='s_status',
-            field=models.CharField(blank=True, max_length=10, null=True),
+            field=models.CharField(),
         ),
     ]
