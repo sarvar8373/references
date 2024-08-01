@@ -18,7 +18,7 @@ def soato(request):
     if name_uzl_filter:
         records_list = records_list.filter(name_uzl__icontains=name_uzl_filter)
 
-    paginator = Paginator(records_list, 20)
+    paginator = Paginator(records_list, 18)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
 
@@ -34,7 +34,7 @@ def oked(request):
     if name_uzl_filter:
         records_list = records_list.filter(name_uzl__icontains=name_uzl_filter)
 
-    paginator = Paginator(records_list, 20)
+    paginator = Paginator(records_list, 18)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
 
@@ -50,7 +50,7 @@ def opf(request):
     if name_uzl_filter:
         records_list = records_list.filter(name_uzl__icontains=name_uzl_filter)
 
-    paginator = Paginator(records_list, 20)
+    paginator = Paginator(records_list, 18)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
 
@@ -66,7 +66,7 @@ def okonx(request):
     if name_uzl_filter:
         records_list = records_list.filter(name_uzl__icontains=name_uzl_filter)
 
-    paginator = Paginator(records_list, 20)
+    paginator = Paginator(records_list, 18)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
 
@@ -82,7 +82,7 @@ def soogu(request):
     if name_uzl_filter:
         records_list = records_list.filter(name_uzl__icontains=name_uzl_filter)
 
-    paginator = Paginator(records_list, 20)
+    paginator = Paginator(records_list, 18)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
 
@@ -98,7 +98,7 @@ def fs(request):
     if name_uzl_filter:
         records_list = records_list.filter(name_uzl__icontains=name_uzl_filter)
 
-    paginator = Paginator(records_list, 20)
+    paginator = Paginator(records_list, 18)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
 
@@ -111,7 +111,7 @@ def doctype(request):
     if name_uzl_filter:
         records_list = records_list.filter(name_uzl__icontains=name_uzl_filter)
 
-    paginator = Paginator(records_list, 20)
+    paginator = Paginator(records_list, 18)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
 
@@ -124,7 +124,7 @@ def country(request):
     if name_uzl_filter:
         records_list = records_list.filter(name_uzl__icontains=name_uzl_filter)
 
-    paginator = Paginator(records_list, 20)
+    paginator = Paginator(records_list, 18)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
 
@@ -137,7 +137,7 @@ def country(request):
     if name_uzl_filter:
         records_list = records_list.filter(name_uzl__icontains=name_uzl_filter)
 
-    paginator = Paginator(records_list, 20)
+    paginator = Paginator(records_list, 18)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
 
@@ -150,7 +150,7 @@ def nation(request):
     if name_uzl_filter:
         records_list = records_list.filter(name_uzl__icontains=name_uzl_filter)
 
-    paginator = Paginator(records_list, 20)
+    paginator = Paginator(records_list, 18)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
 

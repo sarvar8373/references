@@ -2,26 +2,33 @@
 <div>
   <h1 class="text">{% trans "doctype" %}</h1>
 
-  <table class="table bg-white table-hover">
-    <div style="display: flex; gap: 10px">
-      <button type="button" class="btn btn-success">
+  <table class="table table-hover table table-striped">
+    <div class="d-flex gap-3">
+      <button
+        type="button"
+        class="btn btn-success"
+        data-bs-toggle="modal"
+        data-bs-target="#exampleModal"
+      >
         {% trans "create" %}
       </button>
       <div>
-        <form class="row g-3" method="get">
-          <div class="col-md-8">
-            <input
-              class="form-control"
-              placeholder="Nomi uz"
-              type="text"
-              name="name_uzl"
-              value="{{ request.GET.name_uzl }}"
-            />
-          </div>
-          <button class="btn btn-primary" type="submit">
-            {% trans "filtr" %}
-          </button>
-        </form>
+        <div class="d-flex gap-3">
+          <form class="row" method="get">
+            <div class="col-md-8">
+              <input
+                class="form-control"
+                placeholder="Nomi uz"
+                type="text"
+                name="name_uzl"
+                value="{{ request.GET.name_uzl }}"
+              />
+            </div>
+            <button class="btn btn-primary" type="submit">
+              {% trans "filtr" %}
+            </button>
+          </form>
+        </div>
       </div>
     </div>
     <thead class="bg-light">

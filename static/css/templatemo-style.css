@@ -165,11 +165,11 @@ blockquote:after {
   content: none;
 }
 
-table {
+/* table {
   border-collapse: collapse;
   border-spacing: 0;
   font-size: 18px;
-}
+} */
 html {
   font-size: 100%;
   -webkit-text-size-adjust: 100%;
@@ -377,7 +377,7 @@ h5 {
 }
 
 .subscribe-form {
-  margin-top: 80px;
+  margin-top: 20px;
 }
 .subscribe-form input.email {
   -webkit-border-radius: 10px;
@@ -529,24 +529,9 @@ h5 {
 .languagebutton {
   background: #0f91c9;
 }
-.bg-light {
-  background-color: #abababa8;
-}
-.bg-white {
-  background-color: #fff;
-}
 .forms {
   display: flex;
   justify-content: center;
-}
-.mb-3 {
-  margin-bottom: 15px;
-}
-.text-dark {
-  color: #333;
-}
-.text-light {
-  color: #fff;
 }
 .logo-top-margin {
   position: relative;
