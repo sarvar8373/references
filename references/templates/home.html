@@ -1,0 +1,36 @@
+{% extends "base.html" %} {% block main %} {% load i18n %}
+<div id="menu-container">
+  <div class="logo-holder logo-top-margin">
+    <a href="#" class="site-brand"><img src="images/logo.png" alt="" /></a>
+  </div>
+
+  <div id="menu-1" class="homepage home-section text-center">
+    <div class="welcome-text">
+      <h2><strong>{% trans "references" %}</strong></h2>
+      <p>{% trans "references_search" %}</p>
+      <form action="#" method="get" class="subscribe-form">
+        <div class="row">
+          <fieldset class="col-md-offset-2 col-md-6">
+            <input
+              name="subscribe-email"
+              type="email"
+              class="email"
+              id="subscribe-email"
+              placeholder="Ma'lumotnomalar qirdiruvi..."
+            />
+          </fieldset>
+          <fieldset class="col-md-4 button-holder">
+            <input
+              name="submit"
+              type="submit"
+              class="button default"
+              id="submit"
+              value="Izlash"
+            />
+          </fieldset>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock main %}

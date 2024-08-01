@@ -1,0 +1,72 @@
+# -*- coding: utf-8 -*-
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+
+#: .\references\settings.py:132
+msgid "Language"
+msgstr "Ruscha"
+
+#: .\references\settings.py:133
+msgid "Uzbek"
+msgstr "O'zbekcha"
+
+msgid "references"
+msgstr "Ma'lumotnomalar"
+
+msgid "references_search"
+msgstr "Ma'lumotnomalarni shu yerdan izlang"
+
+msgid "login"
+msgstr "Kirish"
+
+msgid "register"
+msgstr "Ro'yhatdan o'tish"
+
+msgid "soato"
+msgstr "MHOBT (СОАТО)"
+
+msgid "oked"
+msgstr "IFUT (ОКЕД)"
+
+msgid "okonx"
+msgstr "XXTUT (ОКОНХ)"
+
+msgid "opf"
+msgstr "THShT (ОПФ)"
+
+msgid "fs"
+msgstr "Mulkchilik shakli"
+
+msgid "soogu"
+msgstr "DBIBT (СООГУ)"
+
+msgid "doctype"
+msgstr "Xujjat turi"
+
+msgid "search"
+msgstr "Qidiruv"
+
+msgid "nation"
+msgstr "Millatlar"
+
+msgid "country"
+msgstr "Davlatlar"
+
+msgid "create"
+msgstr "Yaratish"
+
+msgid "filtr"
+msgstr "Filtr"
+
+msgid "namination_uz"
+msgstr "Nomi(O'zb)"
+
+msgid "namination_ru"
+msgstr "Nomi(Rus)"
+
+msgid "active"
+msgstr "Faol"
+
+msgid "code"
+msgstr "Kodi"

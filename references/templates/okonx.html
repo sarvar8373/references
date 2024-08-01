@@ -1,0 +1,125 @@
+{% extends "base.html" %} {% block main %}{% load i18n %}
+<div>
+  <h1 class="text">{% trans "okonx" %}</h1>
+
+  <table class="table bg-white table-hover">
+    <div style="display: flex; gap: 10px">
+      <button type="button" class="btn btn-success">
+        {% trans "create" %}
+      </button>
+      <div>
+        <form class="row g-3" method="get">
+          <div class="col-md-4">
+            <input
+              class="form-control"
+              placeholder="Kodi"
+              type="text"
+              name="code"
+              value="{{ request.GET.code }}"
+            />
+          </div>
+
+          <div class="col-md-6">
+            <input
+              class="form-control"
+              placeholder="Nomi uz"
+              type="text"
+              name="name_uzl"
+              value="{{ request.GET.name_uzl }}"
+            />
+          </div>
+          <button class="btn btn-primary" type="submit">
+            {% trans "filtr" %}
+          </button>
+        </form>
+      </div>
+    </div>
+    <thead class="bg-light">
+      <tr>
+        <th scope="col text-dark">{% trans "code" %}</th>
+        <th scope="col">{% trans "namination_uz" %}</th>
+        <th scope="col">{% trans "namination_ru" %}</th>
+        <th scope="col">{% trans "active" %}</th>
+      </tr>
+    </thead>
+    <tbody class="table-group-divider">
+      {% for record in page_obj %}
+      <tr>
+        <th scope="row">{{ record.code }}</th>
+        <td>{{ record.name_uzl }}</td>
+        <td>{{ record.name_ru }}</td>
+        <td>
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              value=""
+              id="flexCheckChecked"
+              checked
+            />
+          </div>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-center">
+      {% if page_obj.has_previous %}
+      <li class="page-item">
+        <a class="page-link" href="?page=1"
+          ><i class="fa fa-angle-double-left" aria-hidden="true"></i
+        ></a>
+      </li>
+      <li class="page-item">
+        <a class="page-link" href="?page={{ page_obj.previous_page_number }}"
+          ><i class="fa fa-angle-left" aria-hidden="true"></i
+        ></a>
+      </li>
+      {% else %}
+      <li class="page-item disabled">
+        <a class="page-link" href="#"
+          ><i class="fa fa-angle-double-left" aria-hidden="true"></i
+        ></a>
+      </li>
+      <li class="page-item disabled">
+        <a class="page-link" href="#"
+          ><i class="fa fa-angle-left" aria-hidden="true"></i
+        ></a>
+      </li>
+      {% endif %}
+
+      <li class="page-item active">
+        <span class="page-link">
+          {{ page_obj.number }} - {{ page_obj.paginator.num_pages }} Jami
+        </span>
+      </li>
+
+      {% if page_obj.has_next %}
+      <li class="page-item">
+        <a class="page-link" href="?page={{ page_obj.next_page_number }}"
+          ><i class="fa fa-angle-right" aria-hidden="true"></i
+        ></a>
+      </li>
+      <li class="page-item">
+        <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}"
+          ><i class="fa fa-angle-double-right" aria-hidden="true"></i
+        ></a>
+      </li>
+      {% else %}
+      <li class="page-item disabled">
+        <a class="page-link" href="#"
+          ><i class="fa fa-angle-right" aria-hidden="true"></i
+        ></a>
+      </li>
+      <li class="page-item disabled">
+        <a class="page-link" href="#"
+          ><i class="fa fa-angle-double-right" aria-hidden="true"></i
+        ></a>
+      </li>
+      {% endif %}
+    </ul>
+  </nav>
+</div>
+{% endblock main %}
