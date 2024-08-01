@@ -1,0 +1,159 @@
+
+<!DOCTYPE html>
+    {% load static %}
+    {% load i18n %}
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>{% trans "references" %}</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
+        <link rel="stylesheet" href="{% static 'css/font-awesome.css' %}">
+        <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'css/templatemo-style.css' %}">
+        <script src="{% static 'js/vendor/modernizr-2.6.2.min.js' %}"></script>
+    </head>
+    <body>
+        <div class="site-bg"></div>
+        <div class="site-bg-overlay"></div>
+        <!-- TOP HEADER -->
+        <div class="top-header">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-md-6 col-sm-6 col-xs-12">
+                <p class="phone-info"><a href="#">{% trans "references" %}</a></p>
+              </div>
+              <div class="col-md-6 col-sm-6 col-xs-12">
+                <div class="social-icons">
+                  <ul>
+                   <li> {% get_current_language as CURRENT_LANGUAGE %}
+                    {% get_available_languages as AVAILABLE_LANGUAGES %}
+                    {% get_language_info_list for AVAILABLE_LANGUAGES as languages %}
+                    <div class="languages">
+                      <p>{% trans "Language" %}:</p>
+                      <ul class="languages">
+                        {% for language in languages %}
+                          <li>
+                            <a href="/{{ language.code }}/"
+                              {% if language.code == CURRENT_LANGUAGE %} class="active"{% endif %}>
+                              {{ language.name_local }}
+                            </a>
+                          </li>
+                        {% endfor %}
+                        </ul></li>
+                    <li><a href="{% url "login" %}" class="">{% trans "login" %}</a></li>
+                    <li><a href="{% url "register" %}" class="">{% trans "register" %}</a></li>
+                    </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- .top-header -->
+        <div class="visible-xs visible-sm responsive-menu">
+          <a href="#" class="toggle-menu"> <i class="fa fa-bars"></i></a>
+          <div class="show-menu">
+            <ul class="main-menu">
+              <li>
+                <a class="show-1 active homebutton" href="{% url "references_app" %}"><i class="fa fa-search"></i>{% trans "search" %}</a>
+            </li>
+            <li>
+                <a class="show-2 aboutbutton" href="{% url "soato" %}"><i class="fa fa-location-arrow"></i>{% trans "soato" %}</a>
+            </li>
+            <li>
+                <a class="show-3 projectbutton" href="{% url "oked" %}"><i class="fa fa-paperclip"></i>{% trans "oked" %}</a>
+            </li>
+            <li>
+                <a class="show-5 contactbutton" href="{% url "okonx" %}"><i class="fa fa-suitcase"></i>{% trans "okonx" %}</a>
+            </li>
+              <li>
+                <a class="show-1 secondbutton" href="{% url "opf" %}"><i class="fa fa-university"></i>{% trans "opf" %}</a>
+            </li>
+            <li>
+                <a class="show-2 thirdbutton" href="{% url "fs" %}"><i class="fa fa-bars"></i>{% trans "fs" %}</a>
+            </li>
+            <li>
+                <a class="show-3 fourthbutton" href="{% url "soogu" %}"><i class="fa fa-building"></i>{% trans "soogu" %}</a>
+            </li>
+            <li>
+                <a class="show-5 fifthbutton" href="{% url "doctype" %}"><i class="fa fa-folder"></i>{% trans "doctype" %}</a>
+            </li>
+            <li>
+                <a class="show-5 countrybutton" href="{% url "country" %}"><i class="fa fa-globe"></i>{% trans "country" %}</a>
+            </li>
+            <li>
+                <a class="show-5 languagebutton" href="{% url "nation" %}"><i class="fa fa-language"></i>{% trans "nation" %}</a>
+            </li>
+            </ul>
+          </div>
+        </div>
+        <div class="container-fluid" id="page-content">
+            <div class="row">
+                <div class="col-md-9 col-sm-12 content-holder">
+                    <!-- CONTENT -->
+                    {% block main %}{% endblock main %}
+                </div>
+                <div class="col-md-3 hidden-sm">
+
+                    <nav id="nav" class="main-navigation hidden-xs hidden-sm">
+                        <div class="d-flex" style="display:flex; flex-wrap:wrap; gap:20px">
+                            <ul class="">
+                                <li>
+                                    <a class="show-1 active homebutton" href="{% url "references_app" %}"><i class="fa fa-search"></i>{% trans "search" %}</a>
+                                </li>
+                                <li>
+                                    <a class="show-2 aboutbutton" href="{% url "soato" %}"><i class="fa fa-location-arrow"></i>{% trans "soato" %}</a>
+                                </li>
+                                <li>
+                                    <a class="show-3 projectbutton" href="{% url "oked" %}"><i class="fa fa-paperclip"></i>{% trans "oked" %}</a>
+                                </li>
+                                <li>
+                                    <a class="show-5 contactbutton" href="{% url "okonx" %}"><i class="fa fa-suitcase"></i>{% trans "okonx" %}</a>
+                                </li>
+                                <li>
+                                    <a class="show-5 countrybutton" href="{% url "country" %}"><i class="fa fa-globe"></i>{% trans "country" %}</a>
+                                </li>
+                            </ul>
+                            <ul class="">
+                                <li>
+                                    <a class="show-1 secondbutton" href="{% url "opf" %}"><i class="fa fa-university"></i>{% trans "opf" %}</a>
+                                </li>
+                                <li>
+                                    <a class="show-2 thirdbutton" href="{% url "fs" %}"><i class="fa fa-bars"></i>{% trans "fs" %}</a>
+                                </li>
+                                <li>
+                                    <a class="show-3 fourthbutton" href="{% url "soogu" %}"><i class="fa fa-building"></i>{% trans "soogu" %}</a>
+                                </li>
+                                <li>
+                                    <a class="show-5 fifthbutton" href="{% url "doctype" %}"><i class="fa fa-folder"></i>{% trans "doctype" %}</a>
+                                </li>
+                                <li>
+                                    <a class="show-5 languagebutton" href="{% url "nation" %}"><i class="fa fa-language"></i>{% trans "nation" %}</a>
+                                </li>
+                            </ul>
+                        </div>
+                       
+                    </nav>
+
+                </div>
+            </div>
+        </div>
+        <!-- SITE-FOOTER -->
+        <div class="site-footer">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12 text-center text-light">
+                        <p>
+                        	Copyright &copy; 2024
+
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- .site-footer -->
+        <script src="{% static 'js/vendor/jquery-1.10.2.min.js' %}"></script>
+        <script src="{% static 'js/plugins.js' %}"></script>
+        <script src="{% static 'js/main.js' %}"></script>
+    </body>
+</html>

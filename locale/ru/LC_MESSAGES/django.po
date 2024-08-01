@@ -1,0 +1,72 @@
+# -*- coding: utf-8 -*-
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+
+#: .\references\settings.py:132
+msgid "Russian"
+msgstr "Русский"
+
+#: .\references\settings.py:133
+msgid "Language"
+msgstr "Узбекский"
+
+msgid "references"
+msgstr "Справочник"
+
+msgid "references_search"
+msgstr "Найдите справочники здесь"
+
+msgid "login"
+msgstr "Логин"
+
+msgid "register"
+msgstr "Регистрация"
+
+msgid "soato"
+msgstr "СОАТО"
+
+msgid "oked"
+msgstr "ОКЕД"
+
+msgid "okonx"
+msgstr "ОКОНХ"
+
+msgid "opf"
+msgstr "ОПФ"
+
+msgid "fs"
+msgstr "Форма собственности"
+
+msgid "soogu"
+msgstr "СООГУ"
+
+msgid "doctype"
+msgstr "Тип документа"
+
+msgid "search"
+msgstr "Поиск"
+
+msgid "nation"
+msgstr "Нации"
+
+msgid "country"
+msgstr "Страна"
+
+msgid "create"
+msgstr "Создать"
+
+msgid "filtr"
+msgstr "Филтр"
+
+msgid "namination_uz"
+msgstr "Наименования (Узб)"
+
+msgid "namination_ru"
+msgstr "Наименования (Рус)"
+
+msgid "active"
+msgstr "Актив"
+
+msgid "code"
+msgstr "Код"
