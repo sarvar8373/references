@@ -1,0 +1,42 @@
+{% extends "base.html" %} {% block main %}{% load static %} {% load i18n %}
+<header
+  class="site-header d-flex flex-column justify-content-center align-items-center"
+>
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-5 col-12">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+              <a href="{% url 'references_app' %}">{% trans "home" %}</a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">
+              {% trans "search" %}
+            </li>
+          </ol>
+        </nav>
+        <h2 class="text-white">{% trans "search" %}</h2>
+      </div>
+    </div>
+  </div>
+</header>
+<div class="container my-5">
+  <h3 class="text">{% trans "Category Search Results" %}</h3>
+
+  {% if query %}
+  <p>{% trans "Search query" %}: {{ query }}</p>
+  {% endif %} {% if categories %}
+  <ul>
+    {% for category in categories %}
+    <li>
+      <a href="{% url 'references_table' category.id %}">
+        {{ category.category_name }}
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+  <p>{% trans "No categories found." %}</p>
+  {% endif %}
+</div>
+{% endblock %}

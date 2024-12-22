@@ -12,5 +12,9 @@ urlpatterns = [
 
 urlpatterns += i18n_patterns(
     path('', include('references_app.urls')),
-    path(_('admin/'), admin.site.urls),
+    # path(_('admin/'), admin.site.urls),
+)
+urlpatterns += i18n_patterns(
+    path('account/', include('account.urls')),
+    # path(_('admin/'), admin.site.urls),
 )

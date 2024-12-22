@@ -20,35 +20,77 @@ msgstr "Найдите справочники здесь"
 msgid "login"
 msgstr "Логин"
 
+msgid "home"
+msgstr "Главная страница"
+
+msgid "references_type"
+msgstr "Виды"
+
+msgid "how"
+msgstr "О программе"
+
+msgid "menu"
+msgstr "Меню"
+
+msgid "faqs"
+msgstr "Вопрос-ответ"
+
+msgid "contact"
+msgstr "Контакт"
+
 msgid "register"
 msgstr "Регистрация"
 
 msgid "soato"
 msgstr "СОАТО"
 
+msgid "soato_text"
+msgstr "Система обозначения административно-территориальных образований) образований (объектов) Республики Узбекистан, утвержденного на государственном языке"
+
 msgid "oked"
 msgstr "ОКЕД"
+
+msgid "oked_text"
+msgstr "Классификатор видов экономической деятельности Республики Узбекистан"
 
 msgid "okonx"
 msgstr "ОКОНХ"
 
+msgid "okonx_text"
+msgstr "Общегосударственный классификатор отраслей народного хозяйства Республики Узбекистан"
+
 msgid "opf"
 msgstr "ОПФ"
+
+msgid "opf_text"
+msgstr "Классификатор организационно правовых форм Республики Узбекистан"
 
 msgid "fs"
 msgstr "Форма собственности"
 
+msgid "fs_text"
+msgstr "Классификатор форм собственности Республики Узбекистан"
+
 msgid "soogu"
 msgstr "СООГУ"
 
+msgid "soogu_text"
+msgstr "Ведомственный статистический справочник Система обозначений органов государственного и хозяйственного управления"
+
 msgid "doctype"
 msgstr "Тип документа"
+
+msgid "doctype_text"
+msgstr "Виды документов в Республике Узбекистан"
 
 msgid "search"
 msgstr "Поиск"
 
 msgid "nation"
 msgstr "Нации"
+
+msgid "nation_text"
+msgstr "Нации всего мира"
 
 msgid "country"
 msgstr "Страна"
@@ -64,6 +106,12 @@ msgstr "Наименования (Узб)"
 
 msgid "namination_ru"
 msgstr "Наименования (Рус)"
+
+msgid "namination_uzl"
+msgstr "Наименования (Уз)"
+
+msgid "keys"
+msgstr "Tarmoq"
 
 msgid "active"
 msgstr "Актив"

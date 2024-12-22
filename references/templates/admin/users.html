@@ -1,0 +1,227 @@
+{% extends "./bases.html" %} {% block main %} {% load i18n %}
+<main class="w-100 px-md-4">
+  {% for user in all_users %}
+  <div
+    class="modal fade"
+    id="editUserModal-{{ user.id }}"
+    tabindex="-1"
+    aria-labelledby="editUserModalLabel-{{ user.id }}"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="editUserModalLabel-{{ user.id }}">
+            Tahrirlash Bo'limi
+          </h1>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <form method="POST" action="{% url 'users' %}">
+            {% csrf_token %}
+            <input type="hidden" name="user_id" value="{{ user.id }}" />
+            <div class="mb-3">
+              <label for="userName-{{ user.id }}" class="form-label"
+                >User Nomi</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="userName-{{ user.id }}"
+                name="username"
+                value="{{ user.username }}"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <label for="userFirst-{{ user.id }}" class="form-label"
+                >Ismi</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="userFirst-{{ user.id }}"
+                name="first_name"
+                value="{{ user.first_name }}"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <label for="userLast-{{ user.id }}" class="form-label"
+                >Familiyasi</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="userLast-{{ user.id }}"
+                name="last_name"
+                value="{{ user.last_name }}"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <label for="userEmail-{{ user.id }}" class="form-label"
+                >Email</label
+              >
+              <input
+                type="email"
+                class="form-control"
+                id="userEmail-{{ user.id }}"
+                name="email"
+                value="{{ user.email }}"
+                required
+              />
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-danger"
+                data-bs-dismiss="modal"
+              >
+                Chiqish
+              </button>
+              <button type="submit" name="edit-user" class="btn btn-success">
+                Saqlash
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+
+  <h3 class="text">Foydalanuvchilar</h3>
+  <button
+    type="button"
+    class="btn btn-success my-2"
+    data-bs-toggle="modal"
+    data-bs-target="#usersModal"
+  >
+    {% trans "create" %}
+  </button>
+  <div
+    class="modal fade"
+    id="usersModal"
+    tabindex="-1"
+    aria-labelledby="usersModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="usersModalLabel">
+            Ma'lumotnomalar bo'limi
+          </h1>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <form method="POST" action="{% url 'users' %}">
+            {% csrf_token %} {{ form.as_p }}
+            <div class="modal-footer">
+              <button type="submit" name="add-user" class="btn btn-success">
+                Saqlash
+              </button>
+              <button
+                type="button"
+                class="btn btn-danger"
+                data-bs-dismiss="modal"
+              >
+                Chiqish
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <table class="w-100 border-collapse border border-light-300">
+    <thead class="bg-light-100">
+      <tr class="text-lg font-medium text-light-700">
+        <th scope="col" class="border border-light-300 px-4 py-2 text-left">
+          Nomi
+        </th>
+        <th scope="col" class="border border-light-300 px-4 py-2 text-left">
+          Elektron pochtasi
+        </th>
+        <th
+          scope="col"
+          style=""
+          class="border border-light-300 px-4 py-2 text-left"
+        >
+          Roli
+        </th>
+        <th
+          scope="col"
+          style=""
+          class="border border-light-300 px-4 py-2 text-left"
+        >
+          Faoliyat
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for user in all_users %}
+      <tr
+        id="header-row-{{ form.instance.id }}"
+        class="text-lg text-light-600 even:bg-light-50 hover:bg-light-100"
+      >
+        <td scope="row" class="border border-light-300 px-4 py-2">
+          {% if form.instance.pk %} {% else %} {{ user.username }} {% endif %}
+        </td>
+        <td scope="row" class="border border-light-300 px-4 py-2">
+          {% if form.instance.pk %} {% else %} {{ user.email }} {% endif %}
+        </td>
+        <td scope="row" class="border border-light-300 px-4 py-2">
+          {% if user.is_admin %}Admin {% else %} User {% endif %}
+        </td>
+        {% comment %}
+        <td>{{ form.instance.id }}</td>
+        {% endcomment %}
+        <td style="width: 140px" class="border border-light-300 px-4 py-2">
+          {% if form.instance.id %}
+          <a
+            class="btn btn-warning"
+            href="{% url 'manage_table_rows' user.id  form.instance.id %}"
+          >
+            <i class="bi bi-pencil-square"></i>
+          </a>
+          {% else %}
+          <span class="text-muted"> </span>
+          {% endif %}
+          <button
+            type="submit"
+            class="btn btn-warning"
+            data-bs-toggle="modal"
+            data-bs-target="#editUserModal-{{ user.id }}"
+          >
+            <i class="bi bi-pencil"></i>
+          </button>
+          <form
+            method="post"
+            action="{% url 'users' %}"
+            style="display: inline"
+          >
+            {% csrf_token %}
+            <input type="hidden" name="user_id" value="{{ user.id }}" />
+            <button type="submit" class="btn btn-danger" name="delete-user">
+              <i class="bi bi-trash3-fill"></i>
+            </button>
+          </form>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</main>
+{% endblock %}

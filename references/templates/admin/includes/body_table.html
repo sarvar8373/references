@@ -1,0 +1,292 @@
+{% load static %}
+<div
+  class="modal fade"
+  id="editModal"
+  tabindex="-1"
+  aria-labelledby="editModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editModalLabel">Edit Row</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form id="editRowForm" method="POST">
+          {% csrf_token %}
+          <input type="hidden" id="edit_row_id" name="edit_row_id" value="" />
+
+          <div class="mb-3">
+            <label for="edit_row_name" class="form-label">Row Name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="edit_row_name"
+              name="edit_row_name"
+              required
+            />
+          </div>
+
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button type="submit" class="btn btn-primary">Save changes</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<form method="POST">
+  {% csrf_token %} {{ formset.management_form }}
+
+  <table class="w-100 border-collapse border border-light-300">
+    <thead class="bg-light-100">
+      <tr class="text-lg font-medium text-light-700">
+        <th
+          scope="col"
+          style="width: 88%"
+          class="border border-light-300 px-4 py-2 text-left"
+        >
+          Qatorlar ro'yxati
+        </th>
+        <th>Delete</th>
+        <th
+          scope="col"
+          style=""
+          class="border border-light-300 px-4 py-2 text-left"
+        >
+          Xolati
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for form in formset %}
+      <tr
+        id="header-row-{{ form.instance.id }}"
+        class="text-lg text-light-600 even:bg-light-50 hover:bg-light-100"
+      >
+        <td
+          scope="row"
+          style="width: 5px"
+          class="border border-light-300 px-4 py-2"
+        >
+          {% if form.instance.pk %}
+          <input
+            class="w-100 form-control"
+            type="text"
+            name="{{ form.row_name.name }}"
+            value="{{ form.row_name.value }}"
+            disabled
+          />
+          {% else %} {{ form.row_name }} {% endif %}
+        </td>
+
+        <td
+          scope="row"
+          style="width: 5px"
+          class="border border-light-300 px-4 py-2"
+        >
+          {{ form.DELETE }}
+        </td>
+        <td style="width: 200px" class="border border-light-300 px-4 py-2">
+          {% if form.instance.id %}
+          <button
+            type="button"
+            class="btn btn-primary"
+            data-bs-toggle="modal"
+            data-bs-target="#editModal"
+            onclick="editRow({{ form.instance.id }}, '{{ form.instance.row_name }}')"
+          >
+            <i class="bi bi-pencil"></i>
+          </button>
+          <a class="btn btn-warning" href="">
+            <i class="bi bi-pencil-square"></i>
+          </a>
+          {% else %}
+          <span class="text-muted"> </span>
+          {% endif %} {% if form.instance.id %}
+          <button
+            type="button"
+            class="btn btn-danger"
+            onclick="deleteRow({{ form.instance.id }})"
+            data-header-id="{{ form.instance.id }}"
+          >
+            <i class="bi bi-trash3-fill"></i>
+          </button>
+          {% else %}
+          <span class="text-muted"></span>
+          {% endif %}
+        </td>
+      </tr>
+
+      {% endfor %}
+    </tbody>
+  </table>
+  <a class="btn btn-primary my-3" href="#" id="add-row"
+    ><i class="bi bi-plus-circle"></i
+  ></a>
+  <a
+    href="{% url 'manage_table_headers' category_id %}"
+    class="btn btn-danger my-3"
+    ><i class="bi bi-box-arrow-left"></i> Qaytish
+  </a>
+  <button type="submit" class="btn btn-success">
+    Qo'shish <i class="bi bi-cloud-plus"></i>
+  </button>
+</form>
+<script>
+  const category_id = "{{ category_id }}";
+  const header_id = "{{ header.id }}";
+  function deleteRow(rowId) {
+    if (!rowId) {
+      alert("Invalid row ID.");
+      return;
+    }
+    const url =
+      `{% url 'manage_table_rows' category_id=category_id header_id=header.id %}?row_id=` +
+      rowId;
+
+    fetch(url, {
+      method: "DELETE",
+      headers: {
+        "X-CSRFToken": "{{ csrf_token }}",
+      },
+    })
+      .then((response) => {
+        if (response.ok) {
+          alert("Table row deleted successfully.");
+          const row = document.getElementById("header-row-" + rowId);
+          if (row) {
+            row.remove();
+          }
+        } else {
+          response
+            .json()
+            .then((data) => alert(data.message || "Error deleting table row."));
+        }
+      })
+      .catch((error) => {
+        alert("Error: " + error);
+      });
+  }
+  function editRow(rowId, rowName) {
+    document.getElementById("edit_row_id").value = rowId;
+    document.getElementById("edit_row_name").value = rowName;
+  }
+
+  document
+    .getElementById("editRowForm")
+    .addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      const form = new FormData(this);
+
+      fetch(
+        "{% url 'manage_table_rows' category_id=category_id header_id=header.id %}",
+        {
+          method: "POST",
+          body: form,
+        }
+      )
+        .then((response) => response.json())
+        .then((data) => {
+          if (data.success) {
+            alert(data.message);
+
+            var modal = bootstrap.Modal.getInstance(
+              document.getElementById("editModal")
+            );
+            modal.hide();
+
+            modal._element.addEventListener("hidden.bs.modal", function () {
+              location.reload();
+            });
+          } else {
+            // Show error alert
+            alert("Error: " + data.message);
+          }
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+          alert("An error occurred. Please try again.");
+        });
+    });
+  document.querySelectorAll("thead tr").forEach((row) => {
+    const deleteCell = row.querySelector("th:nth-child(2)");
+    if (deleteCell) {
+      deleteCell.style.display = "none";
+    }
+  });
+
+  document.querySelectorAll("tbody tr").forEach((row) => {
+    const deleteCell = row.querySelector("td:nth-child(2)");
+    if (deleteCell) {
+      deleteCell.style.display = "none";
+    }
+  });
+  document.getElementById("add-row").addEventListener("click", function (e) {
+    e.preventDefault();
+
+    const formset = document.querySelector("tbody");
+    const totalForms = document.querySelector("#id_form-TOTAL_FORMS");
+    const formCount = parseInt(totalForms.value, 10);
+
+    const newForm =
+      formset.children[formset.children.length - 1].cloneNode(true);
+
+    newForm.querySelectorAll("[name]").forEach((input) => {
+      const name = input
+        .getAttribute("name")
+        .replace(/-(\d+)-/, `-${formCount}-`);
+      const id = input.getAttribute("id").replace(/-(\d+)-/, `-${formCount}-`);
+      input.setAttribute("name", name);
+      input.setAttribute("id", id);
+
+      if (input.type === "checkbox") {
+        input.checked = false;
+      } else {
+        input.value = "";
+      }
+    });
+
+    const referencesCategorySelect = newForm.querySelector(
+      "select[name$='references_category']"
+    );
+    if (referencesCategorySelect) {
+      referencesCategorySelect.value = categoryId;
+      referencesCategorySelect.disabled = true;
+    }
+    formset.appendChild(newForm);
+
+    totalForms.value = formCount + 1;
+  });
+
+  document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll("tbody tr").forEach((row) => {
+      const deleteCheckbox = row.querySelector("input[type='checkbox']");
+
+      const headerNameInput = row.querySelector("input[name$='row_name']");
+
+      if (deleteCheckbox && headerNameInput) {
+        if (headerNameInput.value.trim()) {
+          deleteCheckbox.checked = true;
+        } else {
+          deleteCheckbox.checked = false;
+        }
+      }
+    });
+  });
+</script>

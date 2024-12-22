@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+  
+    <html lang="en">
+        <head>
+          <meta charset="utf-8" />
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
+          <meta name="description" content="" />
+          <meta
+            name="author"
+            content="Mark Otto, Jacob Thornton, and Bootstrap contributors"
+          />
+          <meta name="generator" content="Hugo 0.84.0" />
+          <title>Dashboard</title>
+          
+        </head>
+        <body>
+          <header
+            class="navbar navbar-dark sticky-top bg-info flex-md-nowrap p-0 shadow"
+          >
+            <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-2" href="#"
+              >Malumotnomalar</a
+            >
+            <button
+              class="navbar-toggler position-absolute d-md-none collapsed"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#sidebarMenu"
+              aria-controls="sidebarMenu"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+      
+            <div class="d-flex">
+              <div class="nav-item text-nowrap">
+                <p class="nav-link px-3 text-white fs-5"></p>
+              </div>
+              <div class="nav-item text-nowrap">
+                
+                <form action="" method="post">
+                  <button class="nav-link px-3 text-white fs-5" type="submit">Logout</button>
+              </form>
+              </div>
+            </div>
+          </header>
+      
+          <div class="container-fluid">
+            <div class="row">
+              <nav
+                id="sidebarMenu"
+                class="col-md-3 col-lg-2 d-md-block bg-dark sidebar collapse"
+                style="
+          height: 100vh;
+      "
+              >
+                <div class="position-sticky pt-3">
+                  <ul class="nav flex-column">
+                    <li class="nav-item">
+                      <a class="nav-link active text-white" aria-current="page" href="{% url "adminpage" %}">
+                        <span data-feather="home"></span>
+                        Bosh sahifa
+                      </a>
+                    </li>
+                    <li class="mb-1">
+                      <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 text-white collapsed" data-bs-toggle="collapse" data-bs-target="#malumotnomalar-collapse" aria-expanded="false">
+                        Malumotnomalar
+                      </button>
+                      <div class="collapse" id="malumotnomalar-collapse">
+                        <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                          <li class="mx-3 my-3"><a href="" class="link-body-emphasis d-inline-flex text-decoration-none text-white rounded">Xujjat turi</a></li>
+                          <li class="mx-3 my-3"><a href="#" class="link-body-emphasis d-inline-flex text-decoration-none text-white rounded">Shartnomalar</a></li>
+                        </ul>
+                      </div>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link text-white" href="">
+                        <span data-feather="file-text"></span>
+                        Bo'limlar
+                    </a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link text-white" href="">
+                        <span data-feather="file-text"></span>
+                        Chiqish
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </nav>
+             
+            </div>
+          </div>
+      
+          <script
+            src="/docs/5.0/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"
+          ></script>
+      
+          <script
+            src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"
+            integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE"
+            crossorigin="anonymous"
+          ></script>
+          <script
+            src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"
+            integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha"
+            crossorigin="anonymous"
+          ></script>
+        </body>
+      </html>

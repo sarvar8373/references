@@ -152,3 +152,10 @@ class NATION(models.Model):
 
     def __str__(self):
         return self.name_ru
+    
+class ExcelData(models.Model):
+    data = models.JSONField()
+
+    def __str__(self):
+        return f"ExcelData id: {self.id}"
+

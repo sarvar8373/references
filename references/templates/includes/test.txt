@@ -1,0 +1,121 @@
+<!-- TOP HEADER -->
+{% comment %} <ul>
+ 
+  <li></li>
+  <li><a href="{% url 'register' %}" class="">{% trans "register" %}</a></li>
+  <li>
+      {% get_current_language as CURRENT_LANGUAGE %}
+      {% get_available_languages as AVAILABLE_LANGUAGES %}
+      {% get_language_info_list for AVAILABLE_LANGUAGES as languages %}
+      <div class="languages">
+          <ul class="languages">
+              {% for language in languages %}
+                  <li>
+                      <a href="/{{ language.code }}/"
+                      {% if language.code == CURRENT_LANGUAGE %} class="active"{% endif %}>
+                          <img src="{% static 'images/'|add:language.code|add:'.png' %}" width="30" height="18" alt="{{ language.name_local }}" />
+                      </a>
+                  </li>
+              {% endfor %}
+          </ul>
+      </div>
+  </li>    
+</ul>
+<ul class="main-menu">
+<li>
+<a class="show-1 active homebutton" href="{% url 'references_app' %}"><i class="fa fa-search"></i>{% trans "search" %}</a>
+</li>
+<li>
+<a class="show-2 aboutbutton" href="{% url 'soato' %}"><i class="fa fa-location-arrow"></i>{% trans "soato" %}</a>
+</li>
+<li>
+<a class="show-3 projectbutton" href="{% url 'oked' %}"><i class="fa fa-paperclip"></i>{% trans "oked" %}</a>
+</li>
+<li>
+<a class="show-5 contactbutton" href="{% url 'okonx' %}"><i class="fa fa-suitcase"></i>{% trans "okonx" %}</a>
+</li>
+<li>
+<a class="show-1 secondbutton" href="{% url 'opf' %}"><i class="fa fa-university"></i>{% trans "opf" %}</a>
+</li>
+<li>
+<a class="show-2 thirdbutton" href="{% url 'fs' %}"><i class="fa fa-bars"></i>{% trans "fs" %}</a>
+</li>
+<li>
+<a class="show-3 fourthbutton" href="{% url 'soogu' %}"><i class="fa fa-building"></i>{% trans "soogu" %}</a>
+</li>
+<li>
+<a class="show-5 fifthbutton" href="{% url 'doctype' %}"><i class="fa fa-folder"></i>{% trans "doctype" %}</a>
+</li>
+<li>
+<a class="show-5 countrybutton" href="{% url 'country' %}"><i class="fa fa-globe"></i>{% trans "country" %}</a>
+</li>
+<li>
+<a class="show-5 languagebutton" href="{% url 'nation' %}"><i class="fa fa-language"></i>{% trans "nation" %}</a>
+</li>
+</ul> {% endcomment %} <!-- CONTENT -->
+                    {% comment %} 
+               
+                            <ul class="">
+                                <li>
+                                    <a class="show-1 active homebutton" href="{% url 'references_app' %}"><i class="fa fa-search"></i>{% trans "search" %}</a>
+                                </li>
+                                <li>
+                                    <a class="show-2 aboutbutton" href="{% url 'soato' %}"><i class="fa fa-location-arrow"></i>{% trans "soato" %}</a>
+                                </li>
+                                <li>
+                                    <a class="show-3 projectbutton" href="{% url 'oked' %}"><i class="fa fa-paperclip"></i>{% trans "oked" %}</a>
+                                </li>
+                                <li>
+                                    <a class="show-5 contactbutton" href="{% url 'okonx' %}"><i class="fa fa-suitcase"></i>{% trans "okonx" %}</a>
+                                </li>
+                                <li>
+                                    <a class="show-5 countrybutton" href="{% url 'country' %}"><i class="fa fa-globe"></i>{% trans "country" %}</a>
+                                </li>
+                            </ul>
+                            <ul class="">
+                                <li>
+                                    <a class="show-1 secondbutton" href="{% url 'opf' %}"><i class="fa fa-university"></i>{% trans "opf" %}</a>
+                                </li>
+                                <li>
+                                    <a class="show-2 thirdbutton" href="{% url 'fs' %}"><i class="fa fa-bars"></i>{% trans "fs" %}</a>
+                                </li>
+                                <li>
+                                    <a class="show-3 fourthbutton" href="{% url 'soogu' %}"><i class="fa fa-building"></i>{% trans "soogu" %}</a>
+                                </li>
+                                <li>
+                                    <a class="show-5 fifthbutton" href="{% url 'doctype' %}"><i class="fa fa-folder"></i>{% trans "doctype" %}</a>
+                                </li>
+                                <li>
+                                    <a class="show-5 languagebutton" href="{% url 'nation' %}"><i class="fa fa-language"></i>{% trans "nation" %}</a>
+                                </li>
+                            </ul>
+                       
+                    
+        <div
+            class="modal fade"
+            id="exampleModal"
+            tabindex="-1"
+            aria-labelledby="exampleModalLabel"
+            aria-hidden="true"
+            >
+            <div class="modal-dialog">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Yaratish</h1>
+                    <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                    ></button>
+                </div>
+                <div class="modal-body">...</div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                    Yopish
+                    </button>
+                    <button type="button" class="btn btn-primary">Saqlash</button>
+                </div>
+                </div>
+            </div>
+            </div> {% endcomment %}

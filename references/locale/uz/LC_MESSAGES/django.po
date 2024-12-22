@@ -7,6 +7,9 @@ msgstr ""
 msgid "Language"
 msgstr "Ruscha"
 
+msgid "menu"
+msgstr "Menyu"
+
 #: .\references\settings.py:133
 msgid "Uzbek"
 msgstr "O'zbekcha"
@@ -17,6 +20,21 @@ msgstr "Ma'lumotnomalar"
 msgid "references_search"
 msgstr "Ma'lumotnomalarni shu yerdan izlang"
 
+msgid "home"
+msgstr "Bosh sahifa"
+
+msgid "references_type"
+msgstr "Turlari"
+
+msgid "how"
+msgstr "Dastur haqida"
+
+msgid "faqs"
+msgstr "Savol-javob"
+
+msgid "contact"
+msgstr "Bog'lanish"
+
 msgid "login"
 msgstr "Kirish"
 
@@ -26,23 +44,44 @@ msgstr "Ro'yhatdan o'tish"
 msgid "soato"
 msgstr "MHOBT (СОАТО)"
 
+msgid "soato_text"
+msgstr "O’zbekiston Respublikasining davlat tilida tasdiqlangan tuzilmalari (obyektlari) ning ma’muriy-hududiy tuzilmalarini belgilash tizimi"
+
 msgid "oked"
 msgstr "IFUT (ОКЕД)"
+
+msgid "oked_text"
+msgstr "Oʻzbekiston Respublikasi iqtisodiy faoliyat turlari tasniflagichi"
 
 msgid "okonx"
 msgstr "XXTUT (ОКОНХ)"
 
+msgid "okonx_text"
+msgstr "Oʻzbekiston Respublikasi xalq xoʻjaligi tarmoqlarining umumdavlat tasniflagichi"
+
 msgid "opf"
 msgstr "THShT (ОПФ)"
+
+msgid "opf_text"
+msgstr "Oʻzbekiston Respublikasi tashkiliy huquqiy shakllar tasniflagichi"
 
 msgid "fs"
 msgstr "Mulkchilik shakli"
 
+msgid "fs_text"
+msgstr "Mulkchilik shakli tasniflagichi O'zbekiston Respublikasi"
+
 msgid "soogu"
 msgstr "DBIBT (СООГУ)"
 
+msgid "soogu_text"
+msgstr "Davlat va xoʻjalik boshqaruvi idoralarini belgilash tizimi idoraviy statistik ma'lumotnomasi"
+
 msgid "doctype"
-msgstr "Xujjat turi"
+msgstr "Hujjat turi"
+
+msgid "doctype_text"
+msgstr "O'zbekiston Respublikasidagi hujjat turlari"
 
 msgid "search"
 msgstr "Qidiruv"
@@ -50,8 +89,14 @@ msgstr "Qidiruv"
 msgid "nation"
 msgstr "Millatlar"
 
+msgid "nation_text"
+msgstr "Butun dunyodagi millatlar"
+
 msgid "country"
 msgstr "Davlatlar"
+
+msgid "country_text"
+msgstr "Butun dunyodagi davlatlar"
 
 msgid "create"
 msgstr "Yaratish"
@@ -62,8 +107,14 @@ msgstr "Filtr"
 msgid "namination_uz"
 msgstr "Nomi(O'zb)"
 
+msgid "namination_uzl"
+msgstr "Nomi(Uz)"
+
 msgid "namination_ru"
 msgstr "Nomi(Rus)"
+
+msgid "keys"
+msgstr "Tarmoq"
 
 msgid "active"
 msgstr "Faol"

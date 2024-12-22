@@ -1,0 +1,33 @@
+<!-- classifier_data.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Classifier Data</title>
+  </head>
+  <body>
+    <h1>Classifier Data</h1>
+
+    {% for header in headers %}
+    <h2>{{ header }}</h2>
+    <table border="1">
+      <thead>
+        <tr>
+          {% for header_item in headers %}
+          <th>{{ header_item }}</th>
+          {% endfor %}
+        </tr>
+      </thead>
+      <tbody>
+        {% for data in data_list %}
+        <tr>
+          {% for header_item in headers %}
+          <td>{{ data|get_item:header_item }}</td>
+          {% endfor %}
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% endfor %}
+  </body>
+</html>

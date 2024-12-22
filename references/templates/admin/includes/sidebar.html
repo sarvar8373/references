@@ -1,0 +1,57 @@
+{% load static %} {% load i18n %}
+<div class="sidebar" data-image="{% static 'images/sidebar-2.jpg' %}">
+  <div class="sidebar-wrapper">
+    <div class="logo">
+      <a href="{% url "adminpage" %}" class="simple-text">
+        <i class="nc-icon nc-grid-45"></i>
+        <span>ML</span>
+      </a>
+    </div>
+    <ul class="nav">
+      <li class="nav-item">
+        <a class="nav-link" href="{% url "adminpage" %}">
+          <i class="nc-icon nc-chart-pie-35"></i>
+          <p>Dashboard</p>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url "adminpage/katalog" %}">
+          <i class="bi bi-file-earmark-arrow-down-fill"></i>
+          <p>{% trans "references" %}</p>
+        </a>
+      </li>
+      {% comment %} <li>
+        <a button class="nav-link btn-toggle collapsed" data-bs-toggle="collapse" data-bs-target="#malumotnomalar-collapse" aria-expanded="false" href="./user.html">
+          <i class="nc-icon nc-circle-09"></i>
+          <p>{% trans "references" %} <i class="nc-icon nc-stre-down" style="font-size:18px; padding-top:3px;"></i></p></a>
+          <div class="collapse" id="malumotnomalar-collapse">
+                <ul class="nav list-unstyled">
+                    <li class="nav-item"><a class="nav-link" href="{% url "adminpage/references" %}" class="link-body-emphasis d-inline-flex text-decoration-none text-white rounded"><i class="nc-icon nc-simple-add"></i> Ma'lumotnoma qo'shish</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" class="link-body-emphasis d-inline-flex text-decoration-none text-white rounded"><i class="nc-icon nc-notes"></i> Ma'lumotnoma ro'yxati</a></li>
+                </ul>
+          </div>
+        
+      </li> {% endcomment %}
+      {% if user.is_admin %}
+      <li>
+        <a class="nav-link" href="{% url 'users' %}">
+          <i class="nc-icon nc-circle-09"></i>
+          <p>Foydalanuvchilar</p>
+        </a>
+      </li>
+      {% endif %}
+      <li>
+        <a class="nav-link" href="{% url 'settings' %}">
+          <i class="nc-icon nc-settings-tool-66"></i>
+          <p>Sozlamalar</p>
+        </a>
+      </li>
+      <li class="nav-item active active-pro">
+        <a class="nav-link active" href="{% url 'logout' %}">
+          <i class="nc-icon nc-stre-left"></i>
+          <p>Chiqish</p>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>

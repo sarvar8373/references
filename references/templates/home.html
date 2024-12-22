@@ -1,36 +1,57 @@
 {% extends "base.html" %} {% block main %} {% load i18n %}
-<div id="menu-container">
-  <div class="logo-holder logo-top-margin">
-    <a href="#" class="site-brand"><img src="images/logo.png" alt="" /></a>
-  </div>
+<section
+  class="hero-section d-flex justify-content-center align-items-center"
+  id="section_1"
+>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-12 mx-auto">
+        <h1 class="text-white text-center">{% trans "references" %}</h1>
 
-  <div id="menu-1" class="homepage home-section text-center">
-    <div class="welcome-text">
-      <h2><strong>{% trans "references" %}</strong></h2>
-      <p>{% trans "references_search" %}</p>
-      <form action="#" method="get" class="subscribe-form">
-        <div class="row">
-          <fieldset class="col-md-offset-2 col-md-6">
+        <h6 class="text-center">{% trans "references_search" %}</h6>
+
+        <form
+          method="get"
+          class="custom-form mt-4 pt-2 mb-lg-0 mb-5"
+          role="search"
+          action="{% url 'category_search' %}"
+        >
+          <div class="input-group input-group-lg">
+            <span class="input-group-text bi-search" id="basic-addon1"> </span>
+
             <input
-              name="subscribe-email"
-              type="email"
-              class="email"
-              id="subscribe-email"
-              placeholder="Ma'lumotnomalar qirdiruvi..."
+              name="keyword"
+              type="search"
+              class="form-control"
+              id="keyword"
+              placeholder="{% trans 'search' %}"
+              aria-label="{% trans 'Search' %}"
+              value="{{ query|default:'' }}"
             />
-          </fieldset>
-          <fieldset class="col-md-4 button-holder">
-            <input
-              name="submit"
-              type="submit"
-              class="button default"
-              id="submit"
-              value="Izlash"
-            />
-          </fieldset>
-        </div>
-      </form>
+
+            <button type="submit" class="form-control">
+              {% trans "search" %}
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
   </div>
-</div>
+</section>
+<section class="featured-section">
+  {% include 'includes/featured.html' %}
+</section>
+<section class="explore-section section-padding" id="section_2">
+  {% include 'includes/explore.html' %}
+</section>
+<section class="timeline-section section-padding" id="section_3">
+  {% include 'includes/timeline.html' %}
+</section>
+<section class="faq-section section-padding" id="section_4">
+  {% include 'includes/faq.html' %}
+</section>
+<section class="contact-section section-padding section-bg" id="section_5">
+  {% include 'includes/contact.html' %}
+</section>
+
 {% endblock main %}

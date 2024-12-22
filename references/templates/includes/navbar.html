@@ -1,0 +1,55 @@
+{% load static %} {% load i18n %}
+<nav class="navbar navbar-expand-lg">
+    <div class="container">
+        <a class="navbar-brand" href="{% url 'references_app' %}">
+            <i class="bi-back"></i>
+            <span>ML</span>
+        </a>
+
+        <div class="d-lg-none ms-auto me-4">
+            <a href="{% url 'login_view' %}" class="navbar-icon bi-person smoothscroll"></a>
+        </div>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-lg-5 me-lg-auto">
+                <li class="nav-item">
+                    <a class="nav-link click-scroll" href="{% url 'references_app' %}">{% trans "home" %}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link click-scroll" href="{% url 'references_app' %}#section_2">{% trans "references_type" %}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link click-scroll" href="{% url 'references_app' %}#section_3">{% trans "how" %}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link click-scroll" href="{% url 'references_app' %}#section_4">{% trans "faqs" %}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link click-scroll" href="{% url 'references_app' %}#section_5">{% trans "contact" %}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'references' %}">{% trans "references" %}</a>
+                        
+                </li>
+                {% get_current_language as CURRENT_LANGUAGE %}
+                {% get_available_languages as AVAILABLE_LANGUAGES %}
+                {% get_language_info_list for AVAILABLE_LANGUAGES as languages %}
+                {% for language in languages %}
+                <li class="nav-item">
+                    <a class="p-2" href="/{{ language.code }}/"
+                    {% if language.code == CURRENT_LANGUAGE %} class="active"{% endif %}>
+                        <img src="{% static 'images/'|add:language.code|add:'.png' %}" width="30" height="18" alt="{{ language.name_local }}" />
+                    </a>
+                </li>
+                {% endfor %}
+            </ul>
+            <div class="d-none d-lg-block">
+                <a href="{% url 'login_view' %}" class="navbar-icon bi-person smoothscroll"></a>
+            </div>
+        </div>
+    </div>
+</nav>
